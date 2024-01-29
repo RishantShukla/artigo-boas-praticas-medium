@@ -42,20 +42,6 @@ jobs:
     - name: Install
       run: mvn install
 
-    # - name: Build Docker image
-    #   run: docker build -t yourusername/yourappname:${{github.sha}} .
-
-    # - name: Log in to Docker Hub
-    #   uses: docker/login-action@v1
-    #   with:
-    #     username: ${{secrets.RishantShukla}}
-    #     password: ${{secrets.26Apr2002@}}
-
-    # - name: Push Docker image
-    #   uses: docker/build-push-action@v5
-    #   with:
-    #       push: true
-    #       tags: ${{secrets.RishantShukla}}/app:latest
     - name: Build Docker image
       run: docker build -t rishantshukla/ubuntu:${{ github.sha }} .
 
@@ -63,7 +49,7 @@ jobs:
       uses: docker/login-action@v1
       with:
         username: RishantShukla
-        password: 26Apr2002@
+        password: ${{ secrets.26Apr2002@ }}
 
     - name: Push Docker image
       uses: docker/build-push-action@v5
